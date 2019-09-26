@@ -1,0 +1,16 @@
+
+/*单行局中*/
+span{
+    height: 1em;
+    line-height: 1em;
+}/*height=line-height仅该元素有效*/
+
+/*水平居中*/
+
+div{
+    margin: 0 auto;
+}/*这是个子元素*/
+
+div{
+    text-align: center;
+}/*对该元素及子元素有效*/

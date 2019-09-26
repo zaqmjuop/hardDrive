@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>transform2d</title>
+    <style>
+        .box{
+            position: relative;
+            width: 200px;
+            height: 100px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin:  0 auto;
+            border: 1px solid #ddd;
+        }
+        .translate{
+            transform: translate(100px, -10px);
+        }
+        .scale{
+            transform: scale(2,1.1);
+        }
+        .rotate{
+            transform: rotate(37deg);
+        }
+        .skewX{
+            transform: skewX(91deg);
+        }
+        .skewY{
+            transform: skewY(133deg);
+        }
+        .red-spot{
+            position: absolute;
+            left: 10px;
+            top: 20px;
+            width: 2px;
+            height: 2px;
+            background-color: #f00;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">origin</div>
+    <div class="box translate">
+        <div class="red-spot"></div>
+        transform:translate(x, y); /* 位移 */
+    </div>
+    <div class="box scale">
+        <div class="red-spot"></div>
+        transform:sacle(x, y); /*2D缩放*/
+    </div>
+    <div class="box rotate">
+        <div class="red-spot"></div>
+        transform:rotate(deg); /*2D角度*/
+    </div>
+    <div class="box skewX">
+        <div class="red-spot"></div>
+        transform:skewX(deg); /*2D旋转X*/
+    </div>
+    <div class="box skewY">
+        <div class="red-spot"></div>
+        transform:skewY(deg); /*2D旋转Y*/
+    </div>
+    <div>
+        元素消失        
+        visibility: hidden;
+        display:none;
+        opacity: 0;
+        width:0;
+        height:0;
+        transform: scale(0,0);
+        transform: skew(x deg,90-x deg); // 会变成一条线
+    </div>
+    <div>
+        transform: rotate(xdeg,ydeg) translate(x, y) // 多重设置用空格隔开
+        // 多重设置切换顺序结果不同
+    </div>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>transform3d</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            width: 100vw;
+            height: 100vh;
+            /* 1 开启父元素3D空间 */
+            transform-style: preserve-3d;
+            /* 2开启父元素景深 */
+            perspective: 5000px;
+            -webkit-perspective: 5000px;
+            position: relative;
+        }
+
+        #container div {
+            /* 1 开启父元素3D空间 */
+            transform-style: preserve-3d;
+        }
+
+        /* 2景深 */
+        .state {
+            /* Safari 和 Chrome */
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            left: calc(50% - 300px);
+            top: 40%;
+            background-color: rgba(240, 240, 240, 0.5);
+            transform:translateZ(-5000px) translateY(0px) rotateX(60deg) rotateY(0deg) rotateZ(30deg);
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: #f00;
+        }
+
+        .b1 {
+            transform: rotateX(10deg);
+        }
+
+        .b2 {
+            transform: rotateY(10deg);
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cell {
+            flex-grow: 1;
+            border: 3px solid #ddd;
+            border-radius: 3px;
+        }
+
+        #magic-cube {
+            background-color: #f5f5f5;
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            transform: translateZ(100px);
+            left: 150px;
+            top: 150px;
+        }
+
+        .plane {
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            font-size: 100px;
+            font-weight: 900;
+            text-align: center;
+            line-height: 300px;
+        }
+
+        .plane:nth-child(1) {
+            left: 0;
+            top: -300px;
+            transform-origin:50% 100%;
+            transform: rotateX(-90deg);
+        }
+
+        .plane:nth-child(2) {
+            left: 0;
+            top: 0px;
+            transform: rotateY(180deg);
+        }
+
+        .plane:nth-child(3) {
+            left: 0;
+            top: 300px;
+            transform-origin:50% 0%;
+            transform: rotateX(90deg);
+        }
+
+        .plane:nth-child(4) {
+            left: 0;
+            top: 600px;
+            transform: translate3d(0px,-600px,300px);
+        }
+
+        .plane:nth-child(5) {
+            left: -300px;
+            top: 0px;
+            transform-origin:100% 50%;
+            transform: rotateY(90deg);
+        }
+
+        .plane:nth-child(6) {
+            left: 300px;
+            top: 0px;
+            transform-origin:0% 50%;
+            transform: rotateY(-90deg);
+        }
+
+        .bg-color1 {
+            background-color:rgba(255, 0, 0, 0.5);
+        }
+
+        .bg-color2 {
+            background-color: rgba(0, 255, 0, 0.5);
+        }
+
+        .bg-color3 {
+            background-color: rgba(0, 0, 255, 0.5);
+        }
+
+        .bg-color4 {
+            background-color: rgba(255, 255, 0, 0.5);
+        }
+
+        .bg-color5 {
+            background-color: rgba(255, 0, 255, 0.5);
+        }
+
+        .bg-color6 {
+            background-color: rgba(0, 255, 255, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="state">
+            <div id="magic-cube">
+                <div class="plane bg-color1">1</div>
+                <div class="plane bg-color2">2</div>
+                <div class="plane bg-color3">3</div>
+                <div class="plane bg-color4">4</div>
+                <div class="plane bg-color5">5</div>
+                <div class="plane bg-color6">6</div>
+            </div>
+        </div>
+    </div>
+    <script src="transform3d.js"></script>
+</body>
+
+</html>
