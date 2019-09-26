@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es6: true
   },
-  extends: ["eslint:recommended", "airbnb", "prettier"],
+  extends: ["prettier"],
   // , "prettier", "prettier/react" , "airbnb"
   globals: {
     Atomics: "readonly",
