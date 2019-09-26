@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>取消上一次请求</title>
+</head>
+<body>
+<h2>该页面是练习：取消上一次请求</h2>
+<button id="btn">点我获取验证码</button>
+<div id="demo"></div>
+
+<script type="text/javascript">
+  
+  let btn = document.getElementById('btn')
+  let lastXhr
+  
+  btn.onclick = function () {
+    if(lastXhr){
+      lastXhr.abort()
+    }
+    lastXhr =  code()
+    /*
+    * 如果来得及取消，则取消，如果来不及，服务器一定会受到请求，但是回来的时候，“拒之门外”
+    * */
+  }
+
+  //专门用于获取验证码的方法
+  function code() {
+    //1.实例化一个XMLHttpRequest对象，名为：xhr
+    let xhr = new XMLHttpRequest()
+
+    //2.给上一步实例化出来的对象绑定监听，名为：onreadystatechange
+    xhr.onreadystatechange = function () {
+      if(xhr.readyState === 4 && xhr.status === 200){
+        console.log(xhr.response);
+      }
+    }
+
+    //3.指定发送请求的：方式、地址、参数
+    xhr.open('post','http://localhost:3000/acquire_code')
+
+    //注意：如果发送的post请求，务必要加上如下请求头！！！！！！
+    xhr.setRequestHeader('content-type','application/x-www-form-urlencoded')
+
+    //4.发送请求
+    xhr.send()
+    
+    return xhr
+  }
+  
+</script>
+
+</body>
+</html>

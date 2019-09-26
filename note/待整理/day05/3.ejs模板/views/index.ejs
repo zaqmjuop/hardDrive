@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>测试模板</title>
+</head>
+<body>
+
+<!--
+        < % code % > code替换成你想写的js代码，会触发执行，特点是：不会向浏览器输出任何内容
+        < %- data % > data替换成后端注入的数据，渲染标签（没有转义），不安全
+        < %= data % >data替换成后端注入的数据，不渲染标签（转义）
+-->
+
+
+<h1>我是ejs模板渲染出来的</h1>
+<h1><%-a%></h1>
+<%=a%>
+
+<ul>
+    <%for (var i=0; i<persons.length; i++ ){%>
+        <li>
+            <div>姓名：<%=persons[i].name%></div>
+            <div>年龄：<%=persons[i].age%></div>
+            <br>
+        </li>
+    <%}%>
+
+</ul>
+
+</body>
+</html>
