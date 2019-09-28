@@ -1,0 +1,9 @@
+mutation
+action
+mapMutations([''])
+this.$store.dispatch('')
+mapActions
+this.$store.state.
+mapState([''])
+this.$store.getters.xx
+mapGetters([''])
